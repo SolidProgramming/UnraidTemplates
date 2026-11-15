@@ -18,7 +18,7 @@ Einrichtung:&#xD;
 Hinweis: Das Plugin-Repository ist ohne Anmeldung erreichbar; jeder im LAN, der den Port erreicht, kann das Plugin herunterladen (es enthaelt keine Geheimnisse).&#xD;
 &#xD;
 NVENC (optional, NVIDIA-GPU): Das Unraid-Plugin "Nvidia-Driver" muss installiert sein. Unter "Extra Parameters" zusaetzlich --runtime=nvidia eintragen (zu --user 99:100 hinzufuegen), die Variable FinTV__Streaming__Encoder auf h264_nvenc setzen und die Variablen NVIDIA_VISIBLE_DEVICES (GPU-UUID oder all) und NVIDIA_DRIVER_CAPABILITIES=compute,video,utility hinzufuegen. Beim Start prueft der Service den Encoder; ist er nicht nutzbar, beendet er sich mit einer Fehlermeldung im Log.</Overview>
-  <Category>MediaServer:Video Tools:</Category>
+  <Category>MediaServer:Video Tools</Category>
   <WebUI>http://[IP]:[PORT:8098]/health</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/templates/fintv.xml</TemplateURL>
   <ExtraParams>--user 99:100</ExtraParams>
