@@ -2,6 +2,7 @@
   <Name>FinTV</Name>
   <Repository>ghcr.io/solidprogramming/fintv:latest</Repository>
   <Registry>https://github.com/SolidProgramming/FinTV/pkgs/container/fintv</Registry>
+  <Icon>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/icon.png</Icon>
   <Network>bridge</Network>
   <Shell>sh</Shell>
   <Privileged>false</Privileged> 
