@@ -2,4 +2,6 @@
   <Profile>
     SolidProgramming Unraid Templates
   </Profile>
+  <Icon>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/icon.png</Icon>
+  <WebPage>https://github.com/SolidProgramming/UnraidTemplates</WebPage>
 </CommunityApplications>
