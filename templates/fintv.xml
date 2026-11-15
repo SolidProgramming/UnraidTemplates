@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <Container version="2">
   <Name>FinTV</Name>
   <Repository>ghcr.io/solidprogramming/fintv:latest</Repository>
