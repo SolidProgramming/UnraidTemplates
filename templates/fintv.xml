@@ -4,9 +4,9 @@
   <Registry>https://github.com/SolidProgramming/FinTV/pkgs/container/fintv</Registry>
   <Network>bridge</Network>
   <Shell>sh</Shell>
-  <Privileged>false</Privileged>
-  <Support>https://github.com/SolidProgramming/FinTV</Support>
-  <Project>https://github.com/SolidProgramming/FinTV</Project>
+  <Privileged>false</Privileged> 
+  <Support>https://github.com/SolidProgramming/UnraidTemplates/issues</Support>
+  <Project>https://github.com/SolidProgramming/UnraidTemplates</Project>
   <Overview>FinTV erzeugt virtuelle 24/7-Fernsehsender aus der Jellyfin-Mediathek und liefert sie als HLS-Stream. Dieser Container ist der FinTV-Service; er liefert zugleich das Jellyfin-Plugin aus.&#xD;
 &#xD;
 Einrichtung:&#xD;
