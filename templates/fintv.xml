@@ -25,8 +25,7 @@
   <Support>https://github.com/SolidProgramming/UnraidTemplates/issues</Support>
   <Project>https://github.com/SolidProgramming/UnraidTemplates</Project>
   <Overview>
-    FinTV creates virtual 24/7 TV channels from the Jellyfin media library and delivers them as an HLS stream. This container is the FinTV service; it also serves the Jellyfin plugin.&#xD;
-&#xD;
+    FinTV creates virtual 24/7 TV channels from the Jellyfin media library and delivers them as an HLS stream. This container is the FinTV service; it also serves the Jellyfin plugin.&#xD;&#xD;
 Setup:&#xD;
 0. Before the first startup, run the following commands on the Unraid terminal:&#xD; `mkdir -p /mnt/user/appdata/fintv` and `chown 99:100 /mnt/user/appdata/fintv`. The container runs as 99:100; otherwise, Docker creates the directory as root and the service terminates with the error “Applying database migrations failed” in the log.&#xD;
 1. Set the API key (at least 32 characters; generate it using “openssl rand -hex 32”, for example) and mount the media share under /media. Configure the path mapping (From = path in Jellyfin, To = path in the container) so that the service finds the same files as Jellyfin.&#xD;
