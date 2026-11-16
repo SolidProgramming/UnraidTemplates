@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
+  <Beta>
   <Name>FinTV</Name>
   <Repository>ghcr.io/solidprogramming/fintv:latest</Repository>
   <Registry>https://github.com/SolidProgramming/FinTV/pkgs/container/fintv</Registry>
