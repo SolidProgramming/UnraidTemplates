@@ -9,7 +9,6 @@ Community Applications templates for Unraid maintained by **SolidProgramming**.
 FinTV creates virtual 24/7 TV channels from your Jellyfin media library and provides them as HLS streams.
 
 <img width="1400" height="506" alt="fintv_overview.png" src="https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_overview.png" />
-<img alt="fintv_programs.png" src="https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_programs.png" >
 
 The FinTV container also provides the Jellyfin plugin repository, allowing you to install and manage the plugin directly through Jellyfin.
 
