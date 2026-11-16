@@ -5,6 +5,8 @@
   <Repository>ghcr.io/solidprogramming/fintv:latest</Repository>
   <Registry>https://github.com/SolidProgramming/FinTV/pkgs/container/fintv</Registry>
   <Icon>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/icon.png</Icon>
+  <License>MIT</License>
+  <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/fintv_overview.png</Screenshot>
   <Network>bridge</Network>
   <Shell>sh</Shell>
   <Privileged>false</Privileged> 
