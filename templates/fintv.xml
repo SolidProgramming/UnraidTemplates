@@ -9,6 +9,16 @@
   <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_overview.png</Screenshot>
   <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_programs.png</Screenshot>
   <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_newchannel.png</Screenshot>
+  <changes>
+### 0.1.1 (2026-11-15)
+  - FFmpeg 8.1 (jellyfin-ffmpeg in the container) extends the first segment
+    by the value of -output_ts_offset if that option is specified
+    on the segmenter. After an episode change, this resulted in a segment lasting several minutes;
+    the playlist paused for that duration, and players froze.
+  - Pass the offset to the MPEG-TS muxer via -segment_format_options
+  - Set -segment_time_delta to 0.5 so that the first segment also ends at 4 s
+  - Calculate the segment list starting from the beginning of the first line, rounded to the nearest millisecond
+  </changes>
   <Network>bridge</Network>
   <Shell>sh</Shell>
   <Privileged>false</Privileged> 
