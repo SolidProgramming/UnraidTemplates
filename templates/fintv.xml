@@ -24,17 +24,19 @@
   <Privileged>false</Privileged> 
   <Support>https://github.com/SolidProgramming/UnraidTemplates/issues</Support>
   <Project>https://github.com/SolidProgramming/UnraidTemplates</Project>
-  <Overview>FinTV erzeugt virtuelle 24/7-Fernsehsender aus der Jellyfin-Mediathek und liefert sie als HLS-Stream. Dieser Container ist der FinTV-Service; er liefert zugleich das Jellyfin-Plugin aus.&#xD;
+  <Overview>
+    FinTV creates virtual 24/7 TV channels from the Jellyfin media library and delivers them as an HLS stream. This container is the FinTV service; it also serves the Jellyfin plugin.&#xD;
 &#xD;
-Einrichtung:&#xD;
-0. Vor dem ersten Start auf dem Unraid-Terminal ausfuehren: mkdir -p /mnt/user/appdata/fintv und chown 99:100 /mnt/user/appdata/fintv. Der Container laeuft als 99:100; sonst legt Docker das Verzeichnis als root an und der Service beendet sich mit "Applying database migrations failed" im Log.&#xD;
-1. API-Key setzen (mindestens 32 Zeichen, z. B. mit "openssl rand -hex 32" erzeugen) und die Medien-Freigabe unter /media einbinden. Die Pfad-Zuordnung (From = Pfad in Jellyfin, To = Pfad im Container) so einstellen, dass der Service dieselben Dateien findet wie Jellyfin.&#xD;
-2. Container starten und http://[IP]:8098/health pruefen.&#xD;
-3. In Jellyfin unter Dashboard, Plugins, Repositories das Repository http://[IP]:8098/plugin/manifest.json eintragen, FinTV im Katalog installieren und Jellyfin neu starten. Danach auf der Plugin-Seite Service-URL und denselben API-Key eintragen.&#xD;
+Setup:&#xD;
+0. Before the first startup, run the following commands on the Unraid terminal:&#xD; `mkdir -p /mnt/user/appdata/fintv` and `chown 99:100 /mnt/user/appdata/fintv`. The container runs as 99:100; otherwise, Docker creates the directory as root and the service terminates with the error “Applying database migrations failed” in the log.&#xD;
+1. Set the API key (at least 32 characters; generate it using “openssl rand -hex 32”, for example) and mount the media share under /media. Configure the path mapping (From = path in Jellyfin, To = path in the container) so that the service finds the same files as Jellyfin.&#xD;
+2. Start the container and check http://[IP]:8098/health.&#xD;
+3. In Jellyfin, go to Dashboard > Plugins > Repositories, add the repository http://[IP]:8098/plugin/manifest.json, install FinTV from the catalog, and restart Jellyfin. Then, on the plugin page, enter the service URL and the same API key.&#xD;
 &#xD;
-Hinweis: Das Plugin-Repository ist ohne Anmeldung erreichbar; jeder im LAN, der den Port erreicht, kann das Plugin herunterladen (es enthaelt keine Geheimnisse).&#xD;
+Note: The plugin repository is accessible without logging in; anyone on the LAN who can reach the port can download the plugin (it contains no sensitive information).&#xD;
 &#xD;
-NVENC (optional, NVIDIA-GPU): Das Unraid-Plugin "Nvidia-Driver" muss installiert sein. Unter "Extra Parameters" zusaetzlich --runtime=nvidia eintragen (zu --user 99:100 hinzufuegen), die Variable FinTV__Streaming__Encoder auf h264_nvenc setzen und die Variablen NVIDIA_VISIBLE_DEVICES (GPU-UUID oder all) und NVIDIA_DRIVER_CAPABILITIES=compute,video,utility hinzufuegen. Beim Start prueft der Service den Encoder; ist er nicht nutzbar, beendet er sich mit einer Fehlermeldung im Log.</Overview>
+NVENC (optional, NVIDIA-GPU): Das Unraid-Plugin "Nvidia-Driver" muss installiert sein. Unter "Extra Parameters" zusaetzlich --runtime=nvidia eintragen (zu --user 99:100 hinzufuegen), die Variable FinTV__Streaming__Encoder auf h264_nvenc setzen und die Variablen NVIDIA_VISIBLE_DEVICES (GPU-UUID oder all) und NVIDIA_DRIVER_CAPABILITIES=compute,video,utility hinzufuegen. Beim Start prueft der Service den Encoder; ist er nicht nutzbar, beendet er sich mit einer Fehlermeldung im Log.
+  </Overview>
   <Category>MediaServer:Video Tools</Category>
   <WebUI>http://[IP]:[PORT:8098]/health</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/templates/fintv.xml</TemplateURL>
