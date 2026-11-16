@@ -1,42 +1,49 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Beta>
   <Name>FinTV</Name>
   <Repository>ghcr.io/solidprogramming/fintv:latest</Repository>
   <Registry>https://github.com/SolidProgramming/FinTV/pkgs/container/fintv</Registry>
-  <Icon>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/icon.png</Icon>
-  <License>MIT</License>
-  <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_overview.png</Screenshot>
-  <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_programs.png</Screenshot>
-  <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_newchannel.png</Screenshot> 
-  <Network>bridge</Network>
+  <Network>host</Network>
+  <ExtraNetworks/>
+  <MyIP/>
+  <MyMAC/>
   <Shell>sh</Shell>
-  <Privileged>false</Privileged> 
-  <Support>https://github.com/SolidProgramming/UnraidTemplates/issues</Support>
-  <Project>https://github.com/SolidProgramming/UnraidTemplates</Project>
-  <Overview>
-    FinTV creates virtual 24/7 TV channels from the Jellyfin media library and delivers them as an HLS stream. This container is the FinTV service; it also serves the Jellyfin plugin.&#xD;&#xD;
-Setup:&#xD;
-0. Before the first startup, run the following commands on the Unraid terminal:&#xD; `mkdir -p /mnt/user/appdata/fintv` and `chown 99:100 /mnt/user/appdata/fintv`. The container runs as 99:100; otherwise, Docker creates the directory as root and the service terminates with the error “Applying database migrations failed” in the log.&#xD;
-1. Set the API key (at least 32 characters; generate it using “openssl rand -hex 32”, for example) and mount the media share under /media. Configure the path mapping (From = path in Jellyfin, To = path in the container) so that the service finds the same files as Jellyfin.&#xD;
-2. Start the container and check http://[IP]:8098/health.&#xD;
-3. In Jellyfin, go to Dashboard > Plugins > Repositories, add the repository http://[IP]:8098/plugin/manifest.json, install FinTV from the catalog, and restart Jellyfin. Then, on the plugin page, enter the service URL and the same API key.&#xD;
-&#xD;
-Note: The plugin repository is accessible without logging in; anyone on the LAN who can reach the port can download the plugin (it contains no sensitive information).&#xD;
-&#xD;
-NVENC (optional, NVIDIA-GPU): Das Unraid-Plugin "Nvidia-Driver" muss installiert sein. Unter "Extra Parameters" zusaetzlich --runtime=nvidia eintragen (zu --user 99:100 hinzufuegen), die Variable FinTV__Streaming__Encoder auf h264_nvenc setzen und die Variablen NVIDIA_VISIBLE_DEVICES (GPU-UUID oder all) und NVIDIA_DRIVER_CAPABILITIES=compute,video,utility hinzufuegen. Beim Start prueft der Service den Encoder; ist er nicht nutzbar, beendet er sich mit einer Fehlermeldung im Log.
-  </Overview>
-  <Category>MediaServer:Video Tools</Category>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/SolidProgramming/FinTV</Support>
+  <Project>https://github.com/SolidProgramming/FinTV</Project>
+  <ReadMe/>
+  <Overview>FinTV erzeugt virtuelle 24/7-Fernsehsender aus der Jellyfin-Mediathek und liefert sie als HLS-Stream. Dieser Container ist der FinTV-Service; er liefert zugleich das Jellyfin-Plugin aus.&#13;
+&#13;
+Einrichtung:&#13;
+0. Vor dem ersten Start auf dem Unraid-Terminal ausfuehren: mkdir -p /mnt/user/appdata/fintv und chown 99:100 /mnt/user/appdata/fintv. Der Container laeuft als 99:100; sonst legt Docker das Verzeichnis als root an und der Service beendet sich mit "Applying database migrations failed" im Log.&#13;
+1. API-Key setzen (mindestens 32 Zeichen, z. B. mit "openssl rand -hex 32" erzeugen) und die Medien-Freigabe unter /media einbinden. Die Pfad-Zuordnung (From = Pfad in Jellyfin, To = Pfad im Container) so einstellen, dass der Service dieselben Dateien findet wie Jellyfin.&#13;
+2. Container starten und http://:8098/health pruefen.&#13;
+3. In Jellyfin unter Dashboard, Plugins, Repositories das Repository http://:8098/plugin/manifest.json eintragen, FinTV im Katalog installieren und Jellyfin neu starten. Danach auf der Plugin-Seite Service-URL und denselben API-Key eintragen.&#13;
+&#13;
+Hinweis: Das Plugin-Repository ist ohne Anmeldung erreichbar; jeder im LAN, der den Port erreicht, kann das Plugin herunterladen (es enthaelt keine Geheimnisse).&#13;
+&#13;
+NVENC (optional, NVIDIA-GPU): Das Unraid-Plugin "Nvidia-Driver" muss installiert sein. Unter "Extra Parameters" zusaetzlich --runtime=nvidia eintragen (zu --user 99:100 hinzufuegen), die Variable FinTV__Streaming__Encoder auf h264_nvenc setzen und die Variablen NVIDIA_VISIBLE_DEVICES (GPU-UUID oder all) und NVIDIA_DRIVER_CAPABILITIES=compute,video,utility hinzufuegen. Beim Start prueft der Service den Encoder; ist er nicht nutzbar, beendet er sich mit einer Fehlermeldung im Log.</Overview>
+  <Category>MediaServer:Video Tools:</Category>
   <WebUI>http://[IP]:[PORT:8098]/health</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/templates/fintv.xml</TemplateURL>
-  <ExtraParams>--user 99:100</ExtraParams>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/icon.png</Icon>
+  <ExtraParams>--user 99:100 --runtime=nvidia --gpus all</ExtraParams>
+  <PostArgs/>
+  <CPUset>3,4,5,9,10,11</CPUset>
+  <Memory/>
+  <DateInstalled>1794849230</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
   <Config Name="Port" Target="8098" Default="8098" Mode="tcp" Description="Port des FinTV-Service (HTTP)." Type="Port" Display="always" Required="true" Mask="false">8098</Config>
   <Config Name="Config" Target="/config" Default="/mnt/user/appdata/fintv" Mode="rw" Description="Datenverzeichnis (Datenbank, Vorschaubilder, Segmente). Muss 99:100 gehoeren." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/fintv</Config>
-  <Config Name="Media" Target="/media" Default="/mnt/user/media" Mode="ro" Description="Medien-Freigabe, nur lesend." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/media</Config>
-  <Config Name="API-Key" Target="FinTV__ApiKey" Default="" Mode="" Description="Gemeinsamer Schluessel mit dem Plugin, mindestens 32 Zeichen." Type="Variable" Display="always" Required="true" Mask="true"></Config>
-  <Config Name="Pfad-Mapping von (Jellyfin)" Target="FinTV__PathMappings__0__From" Default="/media" Mode="" Description="Pfad, unter dem Jellyfin die Medien sieht." Type="Variable" Display="always" Required="false" Mask="false">/media</Config>
+  <Config Name="Media" Target="/media" Default="/mnt/user/media" Mode="ro" Description="Medien-Freigabe, nur lesend." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/data/media/tv/</Config>
+  <Config Name="API-Key" Target="FinTV__ApiKey" Default="" Mode="" Description="Gemeinsamer Schluessel mit dem Plugin, mindestens 32 Zeichen." Type="Variable" Display="always" Required="true" Mask="true">1ba012c80de6abb3ab82dc46c3bc28ef644a9a82309a6dc1</Config>
+  <Config Name="Pfad-Mapping von (Jellyfin)" Target="FinTV__PathMappings__0__From" Default="/media" Mode="" Description="Pfad, unter dem Jellyfin die Medien sieht." Type="Variable" Display="always" Required="false" Mask="false">/data/tvshows</Config>
   <Config Name="Pfad-Mapping nach (Container)" Target="FinTV__PathMappings__0__To" Default="/media" Mode="" Description="Pfad, unter dem der Service die Medien sieht." Type="Variable" Display="always" Required="false" Mask="false">/media</Config>
-  <Config Name="Encoder" Target="FinTV__Streaming__Encoder" Default="libx264" Mode="" Description="libx264 (CPU) oder h264_nvenc (NVIDIA-GPU, siehe Beschreibung)." Type="Variable" Display="always" Required="false" Mask="false">libx264</Config>
+  <Config Name="Encoder" Target="FinTV__Streaming__Encoder" Default="libx264" Mode="" Description="libx264 (CPU) oder h264_nvenc (NVIDIA-GPU, siehe Beschreibung)." Type="Variable" Display="always" Required="false" Mask="false">h264_nvenc</Config>
   <Config Name="Bevorzugte Sprache" Target="FinTV__Streaming__PreferredLanguage" Default="ger" Mode="" Description="Bevorzugte Audio- und Untertitelsprache (ISO 639-2)." Type="Variable" Display="always" Required="false" Mask="false">ger</Config>
-  <Config Name="Max. gleichzeitige Streams" Target="FinTV__Streaming__MaxConcurrentStreams" Default="3" Mode="" Description="Hoechstzahl gleichzeitig laufender Streams." Type="Variable" Display="always" Required="false" Mask="false">3</Config>
+  <Config Name="Max. gleichzeitige Streams" Target="FinTV__Streaming__MaxConcurrentStreams" Default="3" Mode="" Description="Hoechstzahl gleichzeitig laufender Streams." Type="Variable" Display="always" Required="false" Mask="false">6</Config>
+  <Config Name="NVIDIA_DRIVER_CAPABILITIES" Target="NVIDIA_DRIVER_CAPABILITIES" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">all</Config>
+  <TailscaleStateDir/>
 </Container>
