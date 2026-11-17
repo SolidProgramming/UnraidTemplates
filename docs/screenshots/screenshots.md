@@ -1,6 +1,16 @@
-## Overview
+## Overview (Jellyfin dashboard, administrators)
 <div align="center">
   <img alt="fintv_programs.png" src="https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_overview.png">
+</div>
+
+## Channels
+<div align="center">
+  <img alt="fintv_programs.png" src="https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_channels.png" align="center">
+</div>
+
+## Settings
+<div align="center">
+  <img alt="fintv_programs.png" src="https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_settings.png">
 </div>
 
 ## Programs
@@ -8,7 +18,3 @@
   <img alt="fintv_programs.png" src="https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_programs.png">
 </div>
 
-## New/Edit Channel
-<div align="center">
-  <img alt="fintv_programs.png" src="https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_newchannel.png" align="center">
-</div>
