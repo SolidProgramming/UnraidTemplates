@@ -9,8 +9,9 @@
   <Beta>true</Beta>
   <Icon>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/icon.png</Icon>
   <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_overview.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_channels.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_settings.png</Screenshot>
   <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_programs.png</Screenshot>
-  <Screenshot>https://raw.githubusercontent.com/SolidProgramming/UnraidTemplates/main/docs/screenshots/fintv_newchannel.png</Screenshot>
   <Support>https://github.com/SolidProgramming/UnraidTemplates/issues</Support>
   <Project>https://github.com/SolidProgramming/UnraidTemplates</Project>
   <Overview>FinTV creates virtual 24/7 TV channels from the Jellyfin media library and delivers them as an HLS stream. This container is the FinTV service; it also serves the Jellyfin plugin.&#xD;
