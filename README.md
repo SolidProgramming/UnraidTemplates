@@ -13,6 +13,7 @@ FinTV creates virtual 24/7 TV channels from your Jellyfin media library and prov
 The FinTV container also provides the Jellyfin plugin repository, allowing you to install and manage the plugin directly through Jellyfin.
 
 **Features:**
+
 - Create virtual 24/7 TV channels from your Jellyfin library
 - HLS streaming support
 - Jellyfin plugin integration
