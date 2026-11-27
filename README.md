@@ -23,6 +23,19 @@ The FinTV container also provides the Jellyfin plugin repository, allowing you t
 - Configurable API authentication
 - Persistent configuration and database storage
 
+### GlanceRiff - [Project](https://github.com/SolidProgramming/GlanceRiff)
+
+GlanceRiff is a lightweight, glances-style system monitor with a web dashboard and JSON API.
+
+**Features:**
+
+- CPU, memory, disks, network, temperatures and processes
+- History graphs for the last 10 minutes
+- Optional login and API token
+- Runs on the host network and reads host processes (`--pid=host`)
+
+Install it from Community Applications by searching for **GlanceRiff**; the defaults work as they are. The dashboard is then at `http://[IP]:61208`. Source code, bug reports and questions: [GlanceRiff on GitHub](https://github.com/SolidProgramming/GlanceRiff).
+
 ## Installation
 
 1. Open **Community Applications** in Unraid.
